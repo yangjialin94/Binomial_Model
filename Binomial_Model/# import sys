@@ -1,0 +1,66 @@
+# import sys
+# 
+# fileName = sys.argv[1]
+
+# fileName = 'test.txt'
+# fileName = 'small_triangle.txt'
+fileName = 'large_triangle.txt'
+
+with open(fileName) as f:
+    triangle = [line.split() for line in f]
+
+def findMin(i,j):
+    # base case
+    if i == len(triangle) - 1:
+        return int(triangle[i][j]), [int(triangle[i][j])]
+
+    # recursion
+    minSumL, minPathL = findMin(i+1,j)
+    minSumR, minPathR = findMin(i+1,j+1)
+    
+    if minSumL < minSumR:
+        return int(triangle[i][j]) + minSumL, [int(triangle[i][j])] + minPathL
+    else:
+        return int(triangle[i][j]) + minSumR, [int(triangle[i][j])] + minPathR
+    
+minSum, minPath = findMin(0,0)
+
+# import sys
+# 
+# fileName = sys.argv[1]
+
+# fileName = 'test.txt'
+# fileName = 'small_triangle.txt'
+fileName = 'large_triangle.txt'
+
+with open(fileName) as f:
+    triangle = [line.split() for line in f]
+
+def findMin(i,j):
+    # base case
+    if i == len(triangle) - 1:
+        return int(triangle[i][j]), [int(triangle[i][j])]
+
+    # recursion
+    minSumL, minPathL = findMin(i+1,j)
+    minSumR, minPathR = findMin(i+1,j+1)
+    
+    if minSumL < minSumR:
+        return int(triangle[i][j]) + minSumL, [int(triangle[i][j])] + minPathL
+    else:
+        return int(triangle[i][j]) + minSumR, [int(triangle[i][j])] + minPathR
+    
+minSum, minPath = findMin(0,0)
+
+print(minSum)
+print(minPath)
+
+
+    
+    
+    
+    
+    
+    
+    
+    
